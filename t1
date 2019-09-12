@@ -175,3 +175,260 @@ $( "#dialog" ).dialog();
 </ui:define>
 </ui:composition>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+************************************
+
+
+
+(charts.xhtml)
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+
+
+	<script>
+		window.onload = function() {
+var chart5 = new CanvasJS.Chart("chartContainer5", {
+				animationEnabled : true,
+				backgroundColor : false,
+				width : 170,
+				height : 80,
+
+				theme : "light2",
+				axisY : {
+					minimum: -8,
+					labelFontColor : false,
+					gridThickness : 0,
+					lineThickness : 0,
+					tickLength : 0,
+				},
+				axisX : {
+					interval:2,
+					labelFontColor : false,
+					lineThickness : 0,
+					tickLength : 0,
+				},
+				data : [ {
+					type : "pie",
+				
+					markerSize : 5,
+					dataPoints : [ 
+						<c:forEach var="item" items="#{mbResolvedHistory.getResolved()}">
+						{ label : "#{item.date}", y: #{item.count} } ,
+						</c:forEach>
+						]
+				}]
+			});
+			chart5.render();
+			
+			var chart6 = new CanvasJS.Chart("chartContainer6", {
+				animationEnabled : true,
+				backgroundColor : false,
+				width : 170,
+				height : 80,
+
+				theme : "light2",
+				axisY : {
+					minimum: -8,
+					labelFontColor : false,
+					gridThickness : 0,
+					lineThickness : 0,
+					tickLength : 0,
+				},
+				axisX : {
+					interval:2,
+					labelFontColor : false,
+					lineThickness : 0,
+					tickLength : 0,
+				},
+				data : [ {
+					
+					
+					markerSize : 5,
+					dataPoints : [ 
+						<c:forEach var="item" items="#{mbResolvedHistory.getResolved()}">
+						{ label : "#{item.date}", y: #{item.count} } ,
+						</c:forEach>
+						]
+				}]
+			});
+			chart6.render();
+			
+			var chart7 = new CanvasJS.Chart("chartContainer7", {
+				animationEnabled : true,
+				backgroundColor : false,
+				width : 400,
+				height : 190,
+				
+				theme : "light2",
+				axisY : {
+					minimum: -8,
+					labelFontColor : false,
+					gridThickness : 0,
+					lineThickness : 0,
+					tickLength : 0,
+				},
+				axisX : {
+					interval:2,
+					labelFontColor : false,
+					lineThickness : 0,
+					tickLength : 0,
+				},
+				data : [ {
+					
+					type : "stackedArea",
+					markerSize : 5,
+					dataPoints : [ 
+						<c:forEach var="item" items="#{mbResolvedHistory.getResolved()}">
+						{ label : "#{item.date}", y: #{item.count} } ,
+						</c:forEach>
+						]
+				}]
+			});
+			chart7.render();
+		}
+	</script>
+
+<script src="/resources/scripts/canvasjs.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+	<div class="total-blocks"
+		style="display: -webkit-box; width: 150px; text-align: left; padding-left: 40px;">
+		<a class="block " style="background-color: white; color: black;">
+			<span class="msg">Country Based</span> <span class="chart"></span> <span
+			style="width: 20%;" id="chartContainer5"> </span>
+		</a> <a class="block" style="background-color: white; color: black;">
+			<span class="msg">System Based</span> <span class="chart"></span> <span
+			style="width: 20%;" id="chartContainer6"> </span>
+		</a> <a class="block "
+			style="background-color: white; color: black; width: 375px; height: 200px">
+			<span class="msg">Country Based</span> <span class="chart"></span> <span
+			style="" id="chartContainer7"> </span>
+		</a>
+
+
+
+		<div class="bs-example"
+			style="background-color: white; border-radius: 10px;width: 380px">
+
+			<div id="myAlert"
+				class="alert alert-info alert-dismissible fade show"
+				style="color: #a94442; background-color: #f2dede; border-color: #ebccd1; padding: 5px; margin: 10px; border-radius: 10px;">
+				<strong> Critical</strong> This is a simple example of dismissible
+				alert.
+				<button type="button" class="close"></button>
+			</div>
+			<div id="myAlert"
+				class="alert alert-info alert-dismissible fade show"
+				style="color: #a94442; background-color: #f2dede; border-color: #ebccd1; padding: 5px; margin: 10px; border-radius: 10px;">
+				<strong> Critical</strong> This is a simple example of dismissible
+				alert.
+				<button type="button" class="close"></button>
+			</div>
+			<div id="myAlert1"
+				class="alert alert-infoalert-dismissible fade show"
+				style="color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; padding: 5px; margin: 10px; border-radius: 10px;">
+				<strong>Warning</strong> This is a simple example of dismissible
+				alert.
+				<button type="button" class="close1"></button>
+			</div>
+			<div id="myAlert2" class="alert alert-info aismissible fade show"
+				style="color: #31708f; background-color: #d9edf7; border-color: #bce8f1; padding: 5px; margin: 10px; border-radius: 10px;">
+				<strong>Note!</strong> This is a simple example of dismissible
+				alert.
+				<button type="button" class="close2"></button>
+			</div>
+			<div id="myAlert1"
+				class="alert alert-infoalert-dismissible fade show"
+				style="color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; padding: 5px; margin: 10px; border-radius: 10px;">
+				<strong>Warning</strong> This is a simple example of dismissible
+				alert.
+				<button type="button" class="close1"></button>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</ui:composition>
+</html>
+
+
+
+
+(stat.xhtml)
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+	<div class="dashboard-matrix">
+		<div class="left-dash">
+			<div class="statistics">
+				<ui:include src="totals-block.xhtml" />
+				<ui:include src="alert-blocks.xhtml" />
+			</div>
+			<div class="charts-systems">
+				<div class="char" style="display: table-caption !important;"></div>
+				<div class="sys">
+					<ui:include src="systems.xhtml" />
+				</div>
+			</div>
+			<div class="row1">
+
+				<div class="row2"></div>
+			</div>
+
+			<div class="">
+				<ui:include src="charts.xhtml" />
+			</div>
+			
+			<div class="">
+				<ui:include src="notification.xhtml" />
+			</div>
+		</div>
+		<div class="right-dash">
+			<ui:include src="countries-right.xhtml" />
+		</div>
+
+	</div>
+</ui:composition>
+</html>
+
+
+
+
